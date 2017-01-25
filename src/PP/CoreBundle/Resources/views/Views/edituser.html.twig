@@ -1,0 +1,32 @@
+{# empty Twig template #}
+{% extends "PPUserBundle::layout.html.twig" %}
+
+{% block pp_body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="bloc-inscription floatR">
+                    <h2>Modification</h2>
+                    {{ form_start(formuser) }}
+                    {{ form_label(formuser.plainPassword, 'Mot de passe*: ') }}
+                    <br />
+                    {{ form_widget(formuser.plainPassword) }}
+                    <br />
+                    {{ form_label(formuser.email, 'Email*: ') }}
+                    <br />
+                    {{ form_widget(formuser.email) }}
+                    <br />
+                    {{ form_widget(formuser.photo, {'attr': {'class' : 'floatL'} }) }}
+                    <br />
+                    {{ form_widget(formuser.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}
+                    {{ form_end(formuser) }} 
+
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>   
+    </div>    
+{% endblock %}
+

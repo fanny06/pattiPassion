@@ -1,0 +1,57 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block pp_body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="text-center">
+                    <form method="get">
+                        <div>
+                            <input class="form-border" type="text" value="{{ keyword }}" name="keyword" placeholder="Recherche avancée" />
+                        </div>
+                        <div>
+                            <input class="radio-style" id="all" type="radio" name="type" value="all" checked />
+                            <label for="all">Tous</label>
+                            {% for type in types %}
+                                <label for="{{ type.type }}" >
+                                    <input class="radio-style" id="{{ type.type }}" type="radio"  name="type" value="{{ type.type }}" />{{ type.type }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <input type="submit" value="Rechercher" />
+                        </div>
+                    </form>
+                    {% for recette in recettes %}
+                        <div class="col-sm-4 text-center">
+                            <img class="img-responsive-cadre" src="{{ asset(recette.photo.webPath) }}" alt="" width="400" >
+                            <div class="text-img">
+                                <h4>{{ recette.title }}</h4>
+                                <p>Type: {{ recette.type.type }}</p>
+                                <a href="{{ path('core_recette',{'id':recette.id}) }}"><button class="link-text-img btn">Lire</button></a>
+                                <p>{{ recette.date | date('d/m/Y') }}</p>
+
+                                <a href="{{ path('core_delete',{'id':recette.id}) }}"><button class="link-text-img btn">Supprimer</button></a>
+                                <a href="{{ path('core_edit',{'id':recette.id})}}"><button class="link-text-img btn">Modifier</button></a>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% if nbPage > 1 %}
+                <ul class="pagination">
+                    {% for p in range(1, nbPage) %}
+                        <li {% if p == page %} class="active"{% endif %}>
+                            <a href="{{ path('core_resultats',paramRoute|merge({'page': p})) }}">{{ p }}</a>
+                        </li>
+                    {% endfor %}  
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %} 

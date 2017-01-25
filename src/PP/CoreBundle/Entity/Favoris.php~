@@ -1,0 +1,45 @@
+<?php
+
+namespace PP\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Favoris
+ *
+ * @ORM\Table(name="favoris")
+ * @ORM\Entity(repositoryClass="PP\CoreBundle\Repository\FavorisRepository")
+ */
+class Favoris
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @ORM\ManyToOne(targetEntity="PP\CoreBundle\Entity\Recette")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $recette;
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="PP\UserBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

@@ -1,0 +1,4 @@
+services:
+#    pp_user.example:
+#        class: PP\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

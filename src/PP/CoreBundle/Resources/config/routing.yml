@@ -1,0 +1,149 @@
+core_home:
+    path:     /{page}
+    defaults: 
+        _controller: PPCoreBundle:Views:index
+        page: 1
+    requirements:
+        page: \d*
+
+core_recettes:
+    path:     /recettes/{page}
+    defaults:
+        _controller: PPCoreBundle:Views:recettes
+        page: 1
+    requirements:
+        page: \d*
+
+core_recette:
+    path:     /recette/{id}/{page}
+    defaults:
+        _controller: PPCoreBundle:Views:recette
+        page: 1
+    requirements:
+        id: \d+
+        page: \d*
+    
+core_astuces:
+    path:     /astuces/{page}
+    defaults:
+        _controller: PPCoreBundle:Views:astuces
+        page: 1
+    requirements:
+        page: \d*
+        
+core_favoris:
+    path: /recette/{id}/favoris
+    defaults:
+        _controller: PPCoreBundle:Profile:favoris
+
+core_astuce:
+    path:     /astuce/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:astuce
+
+core_astuce_add:
+    path:     /admin/addastuce
+    defaults:
+        _controller: PPCoreBundle:Views:astuceadd
+
+core_contact:
+    path:     /contact
+    defaults:
+        _controller: PPCoreBundle:Views:contact
+      
+core_modification:
+    path:     /modification
+    defaults:
+        _controller: PPCoreBundle:Views:modification
+
+core_profil:
+    path:     /profil
+    defaults:
+        _controller: PPCoreBundle:Views:profil
+
+core_resultats:
+    path:     /resultats/{page}
+    defaults:
+        _controller: PPCoreBundle:Views:resultats
+        page: 1
+    requirements:
+        page: \d*
+        
+core_add:
+    path:    /admin/add
+    defaults:
+        _controller: PPCoreBundle:Views:add
+        
+core_messages:
+    path:   /admin/messages
+    defaults:
+        _controller: PPCoreBundle:Views:messages
+        
+core_manage_user:
+    path:   /admin/manageuser
+    defaults:
+        _controller: PPCoreBundle:Views:manageuser
+        
+core_edit:
+    path:     /admin/edit/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:edit
+    requirements:
+        id: \d+
+
+core_edit_user:
+    path:     /edit/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:edituser
+    requirements:
+        id: \d+
+
+core_edit_astuce:
+    path:   /edit/astuce/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:editAstuce
+    requirements:
+        id: \d+
+
+core_delete:
+    path:     /admin/delete/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:delete
+    requirements:
+        id: \d+
+        
+core_delete_fav:
+    path: /delete/fav/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:deleteFav
+    requirements:
+        id: \d+
+        
+core_delete_comment:
+    path: /delete/comment/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:deleteComment
+    requirements:
+        id: \d+
+    methods: [post]
+
+core_delete_user:
+    path: /delete/user/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:deleteUser
+    requirements:
+        id: \d+
+
+core_delete_astuce:
+    path: /admin/delete/astuce/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:deleteAstuce
+    requirements:
+        id: \d+
+
+core_delete_message:
+    path: /admin/delete/message/{id}
+    defaults:
+        _controller: PPCoreBundle:Views:deleteMessage
+    requirements:
+        id: \d+

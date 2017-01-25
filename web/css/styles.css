@@ -1,0 +1,412 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-oct.-2016, 12:25:04
+    Author     : Fanny
+*/
+
+/*General*/
+body{
+    background-image: url('../images/fond-macarons.jpg') !important;
+    background-repeat: no-repeat;
+}
+
+h1{
+    font-family: 'Playball', 'Arial', sans-serif;
+    font-size: 50px;
+}
+
+h2{
+    font-family: 'Playball', 'Arial', sans-serif;
+    font-size: 40px;
+}
+
+h4{
+    font-family: 'Playball', 'Arial', sans-serif;
+    font-size: 30px;
+}
+
+.button-connexion{
+    margin-left: 20px;
+    color: #FF6B54;
+}
+
+.button-connexion:hover {
+    color: #FF6B54;
+}
+
+.boxl{
+    height: 400px;
+}
+/*Page index*/
+
+
+/*Barre de recherche*/
+.navbar-form{
+    margin-top: 35px;
+    margin-right: -15px;
+}
+
+.research{
+    width: 200px !important;
+    font-size: 16px;
+}
+
+.logo-research{
+    background-color: #FF6B54 !important;
+    border: 1px solid #FF6B54 !important;
+}
+
+.nav{
+    font-size: 20px;
+}
+/*Page astuce*/
+.link-text-img{
+    margin: 0 10px;
+}
+
+.modal-astuce{
+    width: 800px;
+}
+
+/*Page login*/
+.bloc-login, .bloc-inscription{
+    border: 3px solid #FF6B54;
+    height: auto;
+    padding-left: 20px;
+    padding-bottom: 30px;
+}
+
+.bloc-login{
+    width: 30%;
+    margin-left: 30px;
+}
+
+.bloc-inscription{
+    width: 60%;
+    margin-right: 30px;
+}
+
+label{
+    font-size: 25px !important;
+}
+
+input{
+    width: 300px;
+}
+
+.center-button{
+    width: 200px;
+    margin-top: 30px;
+}
+
+.inlay-parc{
+    margin-right: 30px;
+    margin-top: 40px;
+}
+
+.submit{
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 0 10px;
+    background-color: #fff;
+}
+
+.submit:hover{
+    border: 2px solid #FF6B54;
+    background-color: rgba(255,107,84,0.2);
+}
+
+.submit-inscription, .submit-connexion{
+    width: 300px;
+}
+
+/*Page profil*/
+.bloc-profil{
+    margin: 0 0 30px 20px;
+}
+
+.profil-submit{
+    margin: 60px 0px 0 80px;
+    font-size: 25px;
+}
+
+/*Page modification*/
+.bloc-modification{
+    margin-left: 20px;
+}
+
+.parc-modif{
+    margin-top: 40px;
+    margin-left: 200px;
+}
+
+.submit-modification-parc{
+    margin-top: 40px;
+}
+
+.submit-modification{
+    margin-top: -55px;
+    width: 300px;
+}
+
+/**/
+.text-result{
+    float: left;
+    margin-top: 80px;
+    margin-left: 150px;
+}
+
+.kk{
+    margin-top: 20px;
+}
+
+label{
+    font-family: 'Boogaloo' !important;
+}
+.current{
+    border-bottom: 4px solid #FF6B54 !important;
+}
+
+.navbar-default .navbar-nav > li{
+    color: #FF6B54 !important;
+}
+
+.text-img{
+    display:block;max-width:100%;height:auto;
+    border-bottom: 3px solid #FF6B54;
+    border-right: 3px solid #FF6B54;
+    border-left: 3px solid #FF6B54;
+    padding-top: 10px;
+}
+.img-responsive-cadre{
+    display:block;max-width:100%;height:auto;
+    padding: 10px;
+    padding-top: 10px; 
+    margin-top: 10px;
+    border-top: 3px solid #FF6B54; 
+    border-right: 3px solid #FF6B54; 
+    border-left: 3px solid #FF6B54
+}
+.link-text-img{
+    color: #FF6B54;
+    font-size: 30px;
+}
+
+.link-text-img:hover{
+    color: #FF6B54;
+}
+
+/*modal*/
+.modal-content{
+    border: 3px solid #FF6B54;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.floatL{
+    float: left;
+}
+.floatR{
+    float: right;
+}
+
+.bloc1-inlay, .mini-inlay, .vote-recette{
+    width: 25%;
+    margin-left: 30px;
+}
+
+/*Supprimer*/
+.button-delete{
+    background-color: #FF6B54;
+    color: #FFF;
+}
+
+/*Pagination*/
+.pagination > .active > a{
+    color: #fff;
+    background-color: #FF6B54;
+    border: 1px solid #fff;
+}
+
+.pagination > .active > a:hover{
+    color: #fff;
+    background-color: #FF6B54;
+    border: 1px solid #fff;
+}
+
+.pagination > li > a, .pagination > li > span{
+    color: #FF6B54;
+}
+
+/*Messages*/
+td{
+    width: 300px;
+    border: 2px solid #FF6B54;
+    padding: 5px 0;
+}
+
+.td-style{
+    font-size: 24px;
+    
+}
+
+/*Affichage recette*/
+.icon-recette{
+    margin: 20px 50px;
+}
+
+.text-icon{
+    margin-top: 30px;
+}
+
+.vote{
+    margin: 40px 20px 0 0;
+}
+
+.ingredients{
+    /*border: 1px black solid;*/
+    width: 35%;
+}
+.recette{
+    /*border: 1px black solid;*/
+    width: 60%;
+    padding-right: 100px;
+}
+
+
+.comment-recette{
+    width: 100%;
+    border: 2px solid #FF6B54;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+.user-recette{
+    text-align: left !important;
+    margin: 20px 20px 10px;
+    border-bottom: 2px solid #FF6B54;
+}
+
+.text-recette{
+   text-align: left !important;
+   margin-left: 20px;
+}
+
+.form-recette{
+    margin-bottom: -30px;
+}
+
+.bloc-type{
+    text-align: center;
+    font-size: 20px;
+    
+}
+
+.bloc-info-syle{
+    border: 2px solid #FF6B54;
+    box-shadow: 2px 2px #bbb;
+    font-size: 20px;
+    margin: 20px 50px 20px 0;
+    width: 345px;
+    padding-left: 10px;
+}
+
+.bloc-info-stop, .bloc-step-stop{
+    margin-right: 0px !important;
+}
+
+.bloc-step-syle{
+    border: 2px solid #FF6B54;
+    box-shadow: 2px 2px #bbb;
+    font-size: 20px;
+    margin: 20px 50px 20px 0;
+    width: 541px;
+    padding-left: 10px;
+    height: 200px;
+}
+
+.ingredients-style, .step-style{
+    text-align: left !important; 
+    font-size: 18px;
+}
+
+.decal-img{
+    margin-right: 80px;
+}
+
+.add-favori{
+    margin-left: 100px;
+    margin-top: 80px;
+}
+
+.border-recette{
+    box-shadow: 4px 4px 4px #333;
+}
+
+.title-recette{
+    color: #FF6B54;
+    margin-bottom: 50px;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.photo-user{
+    margin: 10px;
+}
+
+/*contact*/
+.form-msg{
+    width: 100%;
+    height: 100px !important;
+}
+
+.form-border:focus, .form-border:hover{
+    border: solid 2px #FF6B54;
+    box-shadow: 2px 2px 2px #999;
+}
+
+
+/*page profil*/
+.link-profil{
+    text-align: center; 
+    color: #FF6B54;
+    font-size: 20px;
+}
+
+.link-profil:hover {
+    color: #FF6B54;
+}
+
+.info-profil{
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.lien-admin{
+    margin-bottom: 10px;
+}
+
+.space-link{
+    margin: 0 20px;
+    color: #FF6B54;
+}
+
+/*page résultats*/
+.radio-style{
+    width: 70px !important;
+}
+
+/*astuce*/
+.border-astuce{
+    border-top: solid 3px #FF6B54;
+}
+
+.border-title-astuce{
+    border-bottom: solid 3px #FF6B54;
+}

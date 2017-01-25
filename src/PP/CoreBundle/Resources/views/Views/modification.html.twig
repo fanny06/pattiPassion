@@ -1,0 +1,56 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    Modification - {{ parent() }}
+{% endblock %}
+
+
+
+{% block pp_body %}
+
+       <div class="container">
+
+
+        <div class="row">
+            <div class="box">
+                               
+                <div class="bloc-modification ">
+                    <h2>Modification de votre profil</h2>
+                    <div class="floatL">
+                        <form method="post">
+                            <label class="">Adresse mail:</label>
+                            <br />
+                            <input class="" type="text" id="mail" name="mail"/>
+                            <br/>
+                            <label class="">Mot de passe:</label>
+                            <br />
+                            <input class="" type="text" id="psw" name="psw"/>
+                            <br/>
+                            <label class="">Vérification mdp:</label>
+                            <br />
+                            <input class="" type="text" id="veri-psw" name="veri-psw"/>
+                        </form>
+
+                    </div>
+
+                    <div class="floatL parc-modif">
+                        <img src="http://placehold.it/550x450" alt="" width="200"/>
+                         <div class="clearfix"></div>
+                        <button class="submit-modification-parc submit btn btn-default center-button">Pacourir</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    <button type="submit" class="submit-modification submit btn btn-default">Modifier</button>
+                    
+                </div>
+            <div class="clearfix"></div>
+            </div>
+        </div>   
+    </div>
+
+    
+{% endblock %}
+     
+
+
+

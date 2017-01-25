@@ -1,0 +1,53 @@
+{# empty Twig template #}
+{% extends "PPUserBundle::layout.html.twig" %}
+
+{% block pp_body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="bloc-login floatL">
+                    {#{% if error %}
+                        {{error.message}}
+                        {%endif%}#}
+                    <h2>Connexion</h2>
+                    <label for="username">Email :</label>
+                    <form action='{{ path('fos_user_security_check') }}' method="post">
+                        <input class="form-border" type="text" id="username" name="_username" />
+                        <label for="password">Mot de passe :</label>
+                        <input class="form-border" type="password" id="password" name="_password" />
+                        <br />
+                        <input type="submit" class="submit-connexion submit btn btn-default" value="Connexion" />
+                    </form>
+
+                </div>
+                <div class="bloc-inscription floatR">
+                    <h2>Inscription</h2>
+                    {{ form_start(formuser) }}
+                    {{ form_label(formuser.username, 'Nom*: ') }}
+                    <br />
+                    {{ form_widget(formuser.username, {'attr': {'class': 'form-border'} }) }}
+                    <br />         
+                    {{ form_label(formuser.plainPassword, 'Mot de passe*: ') }}
+                    <br />
+                    {{ form_widget(formuser.plainPassword) }}
+                    <br />
+                    {{ form_label(formuser.email, 'Email*: ') }}
+                    <br />
+                    {{ form_widget(formuser.email, {'attr': {'class': 'form-border'} }) }}
+                    <br />
+                    {{ form_widget(formuser.photo, {'attr': {'class' : 'floatL'} }) }}
+                    <br />
+                    <br />
+                    <p>*Champs obligatoires</p>
+                    {{ form_widget(formuser.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}
+                    {{ form_end(formuser) }} 
+
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>   
+    </div>    
+{% endblock %}
+

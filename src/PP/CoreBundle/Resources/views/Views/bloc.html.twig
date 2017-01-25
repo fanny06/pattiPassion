@@ -1,0 +1,11 @@
+
+
+    <div class="col-sm-4 text-center">
+        <img class="img-responsive-cadre" src="{{ asset(recette.photo.webPath) }}" alt="" width="400" >
+        <div class="text-img">
+            <h4>{{ recette.title }}</h4>
+            <p>{{ recette.type.type }}</p>
+            <a class="link-profil" href="{{ path('core_recette',{'id':recette.id}) }}">Voir la recette</a>
+            <p>{{ recette.date | date('d/m/Y') }}</p>
+        </div>
+    </div>

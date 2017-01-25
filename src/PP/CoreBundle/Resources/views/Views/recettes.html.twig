@@ -1,0 +1,47 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block pp_body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="box">
+
+                {% for recette in recettes %}
+                    <div class="col-sm-4 text-center">
+                        <img class="img-responsive-cadre" src="{{ asset(recette.photo.webPath) }}" alt="" width="400" >
+                        <div class="text-img">
+                            <h4>{{ recette.title }}</h4>
+                            <p>{{ recette.type.type }}</p>
+                            <a class="link-profil" href="{{ path('core_recette',{'id':recette.id}) }}">Voir la recette</a>
+                            <p>Ajouté le {{ recette.date | date('d/m/Y') }}</p>
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <a class="link-profil" href="{{ path('core_delete',{'id':recette.id}) }}">Supprimer</a><span class="space-link">|</span>
+                                <a class="link-profil" href="{{ path('core_edit',{'id':recette.id})}}">Modifier</a>
+                             {% else %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+                <div class="text-center ">
+                    
+                {% if nbPage > 1 %}
+                    <ul class="pagination  ">
+                        {% for p in range(1, nbPage) %}
+                            <li{% if p == page %} class="active"{% endif %}>
+                                <a href="{{ path('core_recettes',{'page':p}) }}">{{ p }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>   
+{% endblock %}
+
+
+
+

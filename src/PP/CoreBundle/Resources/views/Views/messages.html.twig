@@ -1,0 +1,34 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    {% block pp_body %}
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="text-center">
+                        <h1>Messages</h1>
+                        
+                            <table>
+                                <tr>
+                                    <td class="td-style">Nom - Prénom</td>
+                                    <td class="td-style">Mail</td>
+                                    <td class="td-style">Message</td>
+                                </tr>
+                                {% for message in messages %}
+                                    {# foreach (messages as message) #}
+                                <tr>
+                                    <td>{{ message.name }} {{ message.firstname }}</td>
+                                    <td><a href='mailto:{{ message.mail }}'>{{ message.mail }}</a></td>
+                                    <td>{{ message.message }}</td>
+                                    <td><a href="{{ path('core_delete_message',{'id':message.id}) }}"><button class="button-delete btn commentdel">Supprimer</button></a></td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

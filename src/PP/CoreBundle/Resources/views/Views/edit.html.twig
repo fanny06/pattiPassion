@@ -1,0 +1,35 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block pp_body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="">
+                        {{form_start(form)}}
+                    <h1 class="text-center">Modifier une recette</h1>
+                    <div class="bloc-type">{{ form_widget(form.type)}}</div>
+                        {{ form_widget(form.photo, {'attr': {'class' : ''} }) }}
+                        
+                        <div class="">
+                            {{ form_widget(form.title, {'attr': {'class' : 'floatL bloc-info-syle'} })}}
+                            {{ form_widget(form.difficulty, {'attr': {'class' : 'floatL bloc-info-syle' } }) }}
+                            {{ form_widget(form.time, {'attr': {'class' : 'floatL bloc-info-syle bloc-info-stop' } }) }}
+                        </div>
+                    <div class="clearfix"></div>
+                        
+                        <div class="">
+                            {{ form_widget(form.ingredients, {'attr': {'class' : 'floatL bloc-step-syle'} }) }}
+                            {{ form_widget(form.step, {'attr': {'class' : 'floatL bloc-step-syle bloc-step-stop'} }) }}
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="text-center">{{ form_widget(form.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}</div>
+                   
+                    {{ form_end(form) }} 
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

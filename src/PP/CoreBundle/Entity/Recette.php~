@@ -1,0 +1,255 @@
+<?php
+
+namespace PP\CoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Recette
+ *
+ * @ORM\Table(name="recette")
+ * @ORM\Entity(repositoryClass="PP\CoreBundle\Repository\RecetteRepository")
+ */
+class Recette {
+
+    public function __construct() {
+        $this->date = new\Datetime();
+    }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="time", type="string", length=255)
+     */
+    private $time;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="difficulty", type="string", length=255)
+     */
+    private $difficulty;
+
+
+    /**
+     *
+     * @ORM\Column(name="ingredients", type="text")
+     */
+    private $ingredients;
+    
+    
+    /**
+     *
+     * @ORM\Column(name="step", type="text")
+     */
+    private $step;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * 
+     * @ORM\OneToOne(targetEntity="PP\CoreBundle\Entity\Image",cascade={"persist"})
+     * 
+     */
+    private $photo;
+
+    /**
+     *
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PP\CoreBundle\Entity\Type",cascade={"persist"})
+     */
+    private $type;
+
+    
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId() {
+        return $this->id;
+    }
+    
+
+
+    /**
+     * Set time
+     *
+     * @param string $time
+     *
+     * @return Recette
+     */
+    public function setTime($time) {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return string
+     */
+    public function getTime() {
+        return $this->time;
+    }
+
+    /**
+     * Set difficulty
+     *
+     * @param string $difficulty
+     *
+     * @return Recette
+     */
+    public function setDifficulty($difficulty) {
+        $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    /**
+     * Get difficulty
+     *
+     * @return string
+     */
+    public function getDifficulty() {
+        return $this->difficulty;
+    }
+   
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Recette
+     */
+    public function setDate($date) {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate() {
+        return $this->date;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Recette
+     */
+    public function setPhoto($photo) {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto() {
+        return $this->photo;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Recette
+     */
+    public function setTitle($title) {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle() {
+        return $this->title;
+    }
+    
+        /**
+     * Set type
+     *
+     * @param Type $type
+     *
+     * @return Recette
+     */
+    public function setType(Type $type) {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return Type
+     */
+    public function getType() {
+        return $this->type;
+    }
+
+   
+
+    /**
+     * Set step
+     *
+     * @param string $step
+     *
+     * @return Recette
+     */
+    public function setStep($step)
+    {
+        $this->step = $step;
+
+        return $this;
+    }
+
+    /**
+     * Get step
+     *
+     * @return string
+     */
+    public function getStep()
+    {
+        return $this->step;
+    }
+}

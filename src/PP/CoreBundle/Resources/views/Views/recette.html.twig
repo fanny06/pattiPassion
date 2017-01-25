@@ -1,0 +1,88 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block pp_body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="text-center">
+
+                    <h1 class="title-recette">{{ recette.title }}</h1>
+                    <img class="border-recette floatL decal-img" src="{{ asset(recette.photo.webPath) }}" alt="" width="300"/>
+                    <div class="floatL icon-recette">
+                        <img class="floatL icon-recette" src="{{asset ('images/horloge.png') }}" alt="" width="60"/>
+                        <p class="text-icon floatR">{{ recette.time }}</p>
+                        <div class="clearfix"></div>
+                        <img class="floatL icon-recette" src="{{asset ('images/difficulte.png') }}" alt="" width="60"/> 
+                        <p class="text-icon">{{ recette.difficulty }}</p>
+                    </div>
+                    
+                    <div class="floatR add-favori">
+                        <a  class="link-profil" title="Ajouter au favoris" href="{{ path('core_favoris',{'id':app.request.get('id')}) }}"><img src="{{asset ('images/coeur.png') }}" alt="Ajout au favoris" width="60"/> </a>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+
+                    <div class="ingredients floatL">
+                        <h2>Ingrédients</h2>
+                        <div class="ingredients-style"><ul><li>{{ recette.ingredients | replace({';' : '</li><li>' }) | raw }}</li></ul></div>
+                    </div>
+                    <div class="recette floatR">
+                        <h2>Recette</h2>
+                        <div class="step-style"><ol><li>{{ recette.step | replace({';' : '</li><li>'}) | raw }}</li></ol></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                    <div class="text-align-left">
+                        <h2>Commentaires</h2>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {% if app.user != null %}
+                                {{ form_start(form) }}
+                                <h3 class="form-user-recette">{{ app.user.username }}</h3>
+                                <p>{{ form_widget(form.comment, {'attr': {'class': 'form-control form-recette form-border'} })}}</p>
+                                <br/>
+                                {{ form_widget(form.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}
+                                {{ form_end(form)  }}
+                            {% endif %}
+                        {% else %}
+                            <p>Pour laisser des commentaires vous devez vous connecter ou vous inscrire</p>
+                            <a class="nav button-connexion" href="{{ path('fos_user_security_login') }}">Connexion - inscription</a>
+                        {% endif %}
+                        <div class="clearfix"></div>
+                    </div>
+                    {% for comment in comments %}
+                        <div id="comment{{ comment.id }}" class="comment-recette">
+                            <img class="floatL border-recette photo-user" src="{{ asset(comment.user.photo.webPath) }}" alt="" width="90"/>
+                            <h3 class="user-recette">{{ comment.user.username }} - {{ comment.date | date('d/m/Y') }}</h3>
+                            
+                            <p class="text-recette ">{{ comment.comment }}</p>
+
+                            {% if is_granted("ROLE_ADMIN") %}
+
+                                <button data-path="{{ path('core_delete_comment',{'id':comment.id}) }}" data-comment="{{ comment.id }}" class="button-delete btn commentdel">Supprimer</button>
+
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    {% if nbPage > 1 %}
+                        <ul class="pagination">
+                            {% for p in range(1, nbPage) %}
+                                <li{% if p == page %} class="active"{% endif %}>
+                                    <a href="{{ path('core_recette',{'id':app.request.get('id'),'page':p}) }}">{{ p }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+                    
+<script src="{{ asset("js/jquery.js") }}" type="text/javascript"></script>
+<script src="{{ asset("js/ajax.js") }}" type="text/javascript"></script>
+{% endblock %} 
+

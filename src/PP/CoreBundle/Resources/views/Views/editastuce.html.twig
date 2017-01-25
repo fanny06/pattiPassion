@@ -1,0 +1,21 @@
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    {% block pp_body %}
+            <div class="container">
+        <div class="row">
+            <div class="box">
+                <h2 class="text-center">Ajouter une astuce</h2>
+                    {{form_start(form)}}
+                        {{ form_widget(form.title, {'attr': {'class' : 'floatL bloc-info-syle form-border'} })}}
+                        {{ form_widget(form.text, {'attr': {'class' : 'floatL bloc-info-syle form-border'} })}}
+                        {{ form_widget(form.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}
+                    {{ form_end(form) }}
+                    
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endblock %}
+{% endblock %}

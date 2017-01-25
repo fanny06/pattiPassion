@@ -1,0 +1,48 @@
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block body %}
+    {% block pp_body %}
+        <div class="container">
+            <div class="row">
+                <div class="box">
+                    <div class="text-center">
+                        <h1>Bienvenue sur votre profil </h1>
+                        <div class="info-profil  border-recette">
+                            {% if is_granted("ROLE_ADMIN") %}
+                                <p>Administrateur</p>
+                                <a class="lien-admin link-profil" href="{{ path('core_add') }}">Ajouter une recette</a><span class="space-link">|</span>
+                                <a class="lien-admin link-profil" href="{{ path('core_astuce_add') }}">Ajouter une astuce</a><span class="space-link">|</span>
+                                <a class="lien-admin link-profil" href="{{ path('core_messages') }}">Messages</a><span class="space-link">|</span>
+                                <a class="lien-admin link-profil" href="{{ path('core_manage_user') }}">Utilisateurs</a>
+                            {% else %}
+                                <div class="clearfix"></div>
+                            {% endif %}
+                            <br />
+                            <img class="floatL border-recette photo-user" src="{{ asset(app.user.photo.webPath) }}" alt="" width="150"/>
+                            <h2>{{ app.user.username }}</h2>
+                            <p>{{ app.user.email }}</p>
+                            <div class="clearfix"></div>
+                            <a class="link-profil" href="{{ path('core_edit_user',{'id':user.id}) }}">Modifier mon profil</a>
+                        </div>    
+                        
+                        
+                    </div>
+                    {% for favori in favoris %}
+                        <div class="col-sm-4 text-center ">
+                            <img class="img-responsive-cadre" src="{{ asset(favori.recette.photo.webPath) }}" alt="" width="400" >
+                            <div class="text-img">
+                                <h4>{{ favori.recette.title }}</h4>
+                                {#<p>{{ favori.recette.type.type }}</p>
+                                <p>{{ favori.recette.date | date('d/m/Y') }}</p>#}
+                                <a class="link-profil" href="{{ path('core_recette',{'id':favori.recette.id}) }}">Voir la recette</a>
+                            <br/>
+                            <a class="link-profil" href="{{ path('core_delete_fav',{'id':favori.recette.id}) }}">Supprimer des favoris</a>
+                            </div>
+                        </div>
+                            
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

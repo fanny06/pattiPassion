@@ -1,0 +1,35 @@
+{# empty Twig template #}
+{% extends "PPCoreBundle::layout.html.twig" %}
+
+{% block pp_body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="">
+                     <h1 class="text-center">Ajouter une recette</h1>
+                        {{form_start(formAdd)}}
+                        
+                        <div class="bloc-type">{{ form_widget(formAdd.type)}}</div>
+                        {{ form_widget(formAdd.photo, {'attr': {'class' : ''} }) }}
+                        
+                        <div class="">
+                            {{ form_widget(formAdd.title, {'attr': {'class' : 'floatL bloc-info-syle form-border'} })}}
+                            {{ form_widget(formAdd.difficulty, {'attr': {'class' : 'floatL bloc-info-syle form-border' } }) }}
+                            {{ form_widget(formAdd.time, {'attr': {'class' : 'floatL bloc-info-syle bloc-info-stop form-border' } }) }}
+                        </div>
+                    <div class="clearfix"></div>
+                        
+                        <div class="">
+                            {{ form_widget(formAdd.ingredients, {'attr': {'class' : 'floatL bloc-step-syle form-border' } }) }}
+                            {{ form_widget(formAdd.step, {'attr': {'class' : 'floatL bloc-step-syle bloc-step-stop form-border'} }) }}
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="text-center">{{ form_widget(formAdd.envoyer, {'attr': {'class': 'submit btn btn-default'} }) }}</div>
+                    {{ form_end(formAdd) }} 
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
